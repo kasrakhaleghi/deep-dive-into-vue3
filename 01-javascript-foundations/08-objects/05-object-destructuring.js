@@ -28,28 +28,34 @@
  * فارسی:
  * می‌توانیم چندین پراپرتی را با یک دستور از آبجکت استخراج کنیم.
  */
+// Example 1: Basic Object Destructuring
+{
+  const user = {
+    name: "Alex",
+    age: 28,
+    role: "Frontend Developer"
+  };
 
-const user = {
-  name: "Alex",
-  age: 28,
-  role: "Frontend Developer"
-};
+  const { name, age, role } = user;
 
-// Without destructuring
-// بدون استفاده از Destructuring
-const userName = user.name;
-const userAge = user.age;
-const userRole = user.role;
+  console.log(name); // Alex
+  console.log(age);  // 28
+  console.log(role); // Frontend Developer
+}
 
-// With destructuring
-// با استفاده از Destructuring
-const { name, age, role } = user;
+// Example 2: Default Values
+{
+  const account = {
+    name: "John",
+    age: undefined
+  };
 
-console.log(name); // Alex
-console.log(age);  // 28
-console.log(role); // Frontend Developer
+  const { name, age = 30, role = "Developer" } = account;
 
-
+  console.log(name); // John
+  console.log(age);  // 30
+  console.log(role); // Developer
+}
 /**
  * 2. Extracting Selected Properties
  * استخراج پراپرتی‌های انتخابی
@@ -122,7 +128,7 @@ console.log(yearsOfExperience);  // 4
  * اگر پراپرتی وجود نداشته باشد یا مقدار آن undefined باشد،
  * مقدار پیش‌فرض استفاده می‌شود.
  */
-
+{
 const account = {
   name: "John",
   age: undefined,
@@ -140,7 +146,7 @@ console.log(accountName); // John
 console.log(age);         // 30
 console.log(role);        // Developer
 console.log(country);     // null
-
+}
 // Important:
 // Default values are used for undefined, not null.
 //
